@@ -79,7 +79,7 @@ export const constantRoutes = [
     ]
   },
     {
-      path: 'List',
+      path: 'LIST',
       name: 'systemList',
       component: () => import('@/pages/system/List'),
       meta: { title: '系统配置', icon: 'tree' },
