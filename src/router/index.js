@@ -79,18 +79,18 @@ export const constantRoutes = [
     ]
   },
     {
-      path: 'LIST',
+      path: '/edit',
       name: 'systemList',
-      component: () => import('@/pages/system/List'),
+      component: Layout,
       meta: { title: '系统配置', icon: 'tree' },
       children: [
        {
-         path: 'List',
+         path: 'list',
          name: 'programaList',
-         component: () => import('@/pages/system/programa/List'),
+         component: () => import('@/pages/system/category/List'),
          meta: { title: '栏目管理', icon: 'tree' }
        },{
-         path: 'List',
+         path: 'detail',
          name: 'systemList',
          component: () => import('@/pages/system/product/List'),
          meta: { title: '产品管理', icon: 'tree' }
