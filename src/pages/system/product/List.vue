@@ -6,7 +6,7 @@
         <el-button type = "danger" size = "small">删除</el-button>
         <!-- /按钮 -->
         <!-- 表格 -->
-        <el-table :data="customers">
+        <el-table :data="products">
             <el-table-column prop = "id" label = "编号"></el-table-column>
             <el-table-column prop = "name" label = "产品名称"></el-table-column>
             <el-table-column prop = "price" label = "价格"></el-table-column>
@@ -60,15 +60,15 @@ export default {
     //用于存放网页中需要调用的方法
     methods:{
         loadData(){
-            let url = "http://localhost:6677/customer/findAll"
+            let url = "http://localhost:6677/product/findAll"
         request.get(url).then((response)=>{
             //将查询结果设置到customers中，this指向外部函数的this
-            this.customers = response.data;
+            this.products = response.data;
         })
         },
         submitHandler(){
             //调用request与后台进行交互，并且要携带参数
-            let url = "http://localhost:6677/customer/saveOrUpdate"
+            let url = "http://localhost:6677/product/saveOrUpdate"
             request({
                 url,
                 method:"POST",
@@ -96,7 +96,7 @@ export default {
           type: 'warning'
         }).then(() => {
             //调用后台接口，完成删除操作
-            let url = "http://localhost:6677/customer/deleteById?id="+id;
+            let url = "http://localhost:6677/product/deleteById?id="+id;
             request.get(url).then((response)=>{
                 //刷新数据
                 this.loadData();
@@ -121,7 +121,7 @@ export default {
         toAddHandler(){
             //将form变为初始值
             this.form = {
-                type:"customer"
+                type:"product"
             }
             this.visible = true;
         }
@@ -130,9 +130,9 @@ export default {
     data(){
         return{
             visible:false,
-            customers:[],
+            products:[],
             form:{
-                type:"customer"
+                type:"product"
             }
         }
     },
