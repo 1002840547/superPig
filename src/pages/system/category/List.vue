@@ -5,7 +5,7 @@
        <el-button type="danger" size="small" >批量删除</el-button>
         <!-- /按钮结束 -->
         <!-- 表格 -->
-       <el-table :data="program">
+       <el-table :data="category">
            <el-table-column prop="id" label="编号" ></el-table-column>
            <el-table-column prop="name" label="栏目名称" ></el-table-column>
            <el-table-column prop="num" label="序号" ></el-table-column>
@@ -52,7 +52,7 @@ export default {
             let url = "http://localhost:6677/category/findAll"
             request.get(url).then((response)=>{
             //将查询结果设置到customers中，this指向外部函数的this
-            this.program = response.data;
+            this.category = response.data;
         })
         },
         submitHandler(){
